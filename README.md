@@ -1,6 +1,6 @@
 # Secure Exam Environment
 
-[**🚀 Live Demo**](https://secure-test-environment-enforcement-seven.vercel.app/)
+[** Live Demo**](https://secure-test-environment-enforcement-seven.vercel.app/)
 
 A robust, secure online examination platform designed to ensure assessment integrity through automated proctoring features. This application enforces fullscreen mode, detects tab switching, and logs all user activity to a backend server.
 
