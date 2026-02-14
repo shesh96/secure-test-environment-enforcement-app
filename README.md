@@ -1,4 +1,4 @@
-# Secure Exam Environment
+# Secure Test Environment Enforcement App
 
 [ Live Demo](https://secure-test-environment-enforcement-seven.vercel.app/)
 
