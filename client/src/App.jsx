@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { SecurityMonitor } from './components/SecurityMonitor';
 import { ViolationModal } from './components/ViolationModal';
+import { LogViewerModal } from './components/LogViewerModal';
 import { useEventLogger } from './hooks/useEventLogger';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -8,6 +9,7 @@ function App() {
   const [examStarted, setExamStarted] = useState(false);
   const [violation, setViolation] = useState(null);
   const [violationCount, setViolationCount] = useState(0);
+  const [showLogs, setShowLogs] = useState(false);
   const [attemptId] = useState(uuidv4());
 
   const { logEvent } = useEventLogger(attemptId);
@@ -161,9 +163,17 @@ function App() {
                 <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-1">Session ID</p>
                 <p className="font-mono text-sm text-gray-700 dark:text-gray-300 break-all">{attemptId}</p>
               </div>
+
+              <button
+                onClick={() => setShowLogs(true)}
+                className="mt-6 w-full py-3 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-xl font-bold hover:bg-indigo-200 dark:hover:bg-indigo-900/50 transition-colors"
+              >
+                View Session Logs
+              </button>
+
               <button
                 onClick={() => window.location.reload()}
-                className="mt-8 w-full py-3 bg-gray-900 dark:bg-white text-white dark:text-black rounded-xl font-bold hover:shadow-lg hover:scale-105 transition-all duration-200"
+                className="mt-4 w-full py-3 bg-gray-900 dark:bg-white text-white dark:text-black rounded-xl font-bold hover:shadow-lg hover:scale-105 transition-all duration-200"
               >
                 Return to Home
               </button>
@@ -203,6 +213,11 @@ function App() {
       {/* Violation Modal */}
       {violation && (
         <ViolationModal message={violation} onClose={dismissViolation} />
+      )}
+
+      {/* Log Viewer Modal */}
+      {showLogs && (
+        <LogViewerModal attemptId={attemptId} onClose={() => setShowLogs(false)} />
       )}
     </div>
   );
