@@ -13,6 +13,7 @@ A robust, secure online examination platform designed to ensure assessment integ
   - Context menu attempts (right-click)
   - Copy/paste actions
 - **Real-time Logging**: All events are captured locally and synced to the backend database.
+- **Log Viewer**: View detailed session logs (fullscreen exits,copy, tab switches, etc.) directly in the app after submitting the exam.
 - **Premium UI**: A clean, distraction-free interface built with Tailwind CSS.
 
 ## Tech Stack
